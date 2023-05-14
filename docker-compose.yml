@@ -1,0 +1,27 @@
+version: '3.9'
+
+services:
+  db:
+    image: "${SYBASE_RELEASE_NAME}:${SYBASE_RELEASE_VERSION}"
+    container_name: ${SYBASE_CONTAINER}
+    environment:
+      SYBASE_DB: ${SYBASE_GUEST_DATABASE}
+      SYBASE_USER: ${SYBASE_GUEST_USER}
+      SYBASE_PASSWORD: ${SYBASE_GUEST_USER_PASSWORD}
+    ports:
+      - ${SYBASE_PORT}:80
+    volumes:
+      - db-data:/opt/sybase/data
+      - db-log:/opt/sybase/log
+    networks:
+      - net
+
+volumes:
+  db-data:
+    driver: local
+  db-log:
+    driver: local
+
+networks:
+  net:
+    driver: bridge
