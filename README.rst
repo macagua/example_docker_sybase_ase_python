@@ -8,13 +8,22 @@ his data with Python.
 Install
 =======
 
-Pre requirements for deploy with Docker:
+Pre requirements for deploy with Docker, executing the following command:
 
 ::
 
     $ sudo apt update && sudo apt upgrade
     $ sudo apt install build-essential libpq-dev python3-dev
     $ pip install -U pip
+
+Define some values for the deploy into the ``.env`` file, executing the
+following command:
+
+::
+
+    $ cd example_docker_sybase_ase_python/
+    $ cp .env.example .env
+    $ nano .env
 
 For deploy this software stack, you require the following software:
 
